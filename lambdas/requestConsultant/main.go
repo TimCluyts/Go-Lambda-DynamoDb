@@ -22,7 +22,7 @@ type Consultant struct {
 }
 
 type MyResponse struct {
-	Tables string `json:"Tables"`
+	Name string `json:"Tables"`
 }
 
 func HandleLambdaEvent(event *Event) (*MyResponse, error) {
@@ -54,7 +54,7 @@ func HandleLambdaEvent(event *Event) (*MyResponse, error) {
 		panic(err) // PANIC! This is a programming error so we stop execution
 	}
 
-	return &MyResponse{Tables: fmt.Sprint(consultant)}, nil
+	return &MyResponse{Name: fmt.Sprint(consultant.Name)}, nil
 
 }
 
